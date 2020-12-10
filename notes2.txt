@@ -24,4 +24,14 @@ and manager will check if the final balloon has been found,
 each pass will modify a different balloon, until the final balloon has been found
 
 once that it has been found, manager will stop making passes and paths will call DFS in graphs, and it will display
-the fastest way to get to the balloon that we need to get to. 
+the fastest way to get to the balloon that we need to get to.
+
+
+//what i could do for printing
+set up first row,
+call run()
+++ a counter that changes the row
+call run()
+rinse, repeat
+
+run would be the one printing the row to the screen

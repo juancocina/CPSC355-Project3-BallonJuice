@@ -29,3 +29,6 @@ d ---->-P (move to limit on p from d) = doesn't matter right now
 
 i think the issue might be that im passing a reference to the original balloon or a pointer, not sure how javascript works
 So i have to go back to the original code, and make it a global variable instead. so that way modifying the destBalloon wont change the srcBalloon
+
+//update
+the balloon object is passed by reference, because its an object, so no matter what i do, its always going to change the original value.

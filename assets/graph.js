@@ -20,6 +20,7 @@ class Graph {
     this.adjacencyList[source].push(destination);
     this.adjacencyList[destination].push(source);
   }
+  
   /* this section shouldn't be necessary for this project
   removeEdge(source, destination) {
     this.adjacencyList[source] = this.adjacencyList[source].filter(vertex => vertex !== destination);

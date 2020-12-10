@@ -9,7 +9,7 @@ function setup() // P5 Setup Fcn
       dark: 0,
       pale: 13,
       veined: 6,
-      exists: "false"
+      //exists: "false"
     }
     newManager = new PathManager(16, 40, 40, balloon);
     createCanvas(newManager.width, newManager.height);  // Make a P5 canvas.

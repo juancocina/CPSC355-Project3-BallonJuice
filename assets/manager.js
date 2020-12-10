@@ -49,7 +49,7 @@ class PathManager {
                 //console.log(this.balloonArray[this.counter]);
                 this.path.run(this.balloonArray[this.counter]);
                 this.counter++;
-                console.log(this.balloonArray);
+                //console.log(this.balloonArray);
             }
         }
     }

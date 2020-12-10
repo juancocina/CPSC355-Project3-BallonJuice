@@ -5,7 +5,7 @@ let newManager;
 
 function setup() // P5 Setup Fcn
 {
-    let balloon = {
+    var balloon = {
       dark: 0,
       pale: 13,
       veined: 6
@@ -22,6 +22,9 @@ function draw()  // P5 Frame Re-draw Fcn, Called for Every Frame.
     ++g_frame_cnt;
     if (0 === g_frame_cnt % g_frame_mod)
     {
-        if (!newManager.isPaused) newManager.draw();
+        if (!newManager.isPaused){
+          newManager.draw();
+        }
+
     }
 }

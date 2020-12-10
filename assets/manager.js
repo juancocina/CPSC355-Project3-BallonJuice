@@ -1,3 +1,4 @@
+var firstballoon;
 class PathManager {
     constructor(cellSize, width, height, balloon) {
         this.cellSize = cellSize;
@@ -6,10 +7,10 @@ class PathManager {
         this.width = this.cellSize * width;
         this.height = this.cellSize * height;
         this.isPaused = false;
-        this.balloon = balloon;
+        firstballoon = Object.assign({}, balloon);
 
         this.balloonArray = [];
-        this.balloonArray.push(this.balloon);
+        this.balloonArray.push(firstballoon);
         this.counter = 0;
     }
 
@@ -30,7 +31,7 @@ class PathManager {
     }
 
     setUp() { // clears the canvas and redraws
-        this.path = new GeneratePaths(this.balloon, this.balloonArray);
+        this.path = new GeneratePaths(firstballoon, this.balloonArray);
 
         // reset canvas and current rows (we don't reset to the 0th row bc it gets clipped out so start @ 1.
         background(255);
@@ -40,15 +41,15 @@ class PathManager {
     draw() {
         if (this.isCompleted()) { // Algorithms have run 15 times and the inputString has rotated back to its original string.
             this.pause(); // So pause the program to stop it.
-            this.path.done();
+            this.path.done(this.balloonArray);
         }
         else {
             if (!this.path.isJuice) {
-                //console.log(this.counter);
+                console.log(this.counter);
                 //console.log(this.balloonArray[this.counter]);
                 this.path.run(this.balloonArray[this.counter]);
                 this.counter++;
-                //console.log(this.balloonArray);
+                console.log(this.balloonArray);
             }
         }
     }

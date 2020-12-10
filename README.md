@@ -2,23 +2,30 @@
 
 Juan Cocina, CPSC 335-03, Siska
 
-So basically think about the Resident Evil 2 Remake puzzle that involves the test tubes
+Main.js passes the start balloon into manager 
+Manager.js creates a path generator
+Paths.js is what makes the modification on each balloon and pushes it to graph.js's graph, once the balloon 3, 13, 3 is found
+	tell the manager that we're done
+	manager will use a panths.js function that tells graph.js to traverse the adjacency list
+Graph.js has the functions to create the adjacency list, and traverse it
 
-The hard part about this project is the algorithm
+This is the basic gist of the js heirarchy
 
-move to all
-	- Move all the values
-move to limit
-	- Move as many as the next variable can hold
+//current issues
+Paths.js is not doing the moves and storing them properly
+Ive created this.srcBalloon and destBalloon (source and destination respectivly).
+this.srcBalloon is supposed to stay as the original Balloon that came into run(), and im only supposed to make modifications on destBalloon.
+(look at paths.js run() function before continuing)
 
-Breadth first search might be good for this project
-Keep in mind all the numbers are prime
+After making a modification to 0 13 6, i get 13 0 6, which is fine, so i push that
+But even when i only modify destBalloon, it seems to me that this.srcBalloon changes, to what destBalloon is.
+So i can't reset destBalloon to the one that came into run(), and continue to the next move
 
-Run through each combo, if the pair already exists, dont run through it again
+the moves should be as follows 
+start ---> 0 13 6
+d <---- p (move all to d from p) = 13 0 6
+d ----> p (move all to p from d) //doesn't reset to 0 13 6, so it just moves 13 0 6, back to 0 13 6
+d ---->-P (move to limit on p from d) = doesn't matter right now
 
-
-Gonna try building the code in C++ first, since thats what i know
-
-First off in my head
-Im gonna code the values
-I need to know what kind of data structures im going to need
+i think the issue might be that im passing a reference to the original balloon or a pointer, not sure how javascript works
+So i have to go back to the original code, and make it a global variable instead. so that way modifying the destBalloon wont change the srcBalloon

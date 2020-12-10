@@ -1,0 +1,27 @@
+//day 2 of working on this
+i've figured out the graph, kind of
+I just have to figure out how to display it like an adjacencyList
+
+I tried writing out the paths by hand, but i genuinely didn't get to the right balloon.
+im going to use paths.js to generate the object balloon and do the math for the paths
+
+
+//day 3
+
+here is the hierarchy
+  Main
+  manager
+  Paths
+  graph
+
+
+main will have the original balloon, which will be passed to manager
+manager will set up the path generator in paths, which is responsible for creating new balloons
+and moves
+
+paths will take the original balloon, modify it, create new balloons, push it to the the list that it needs to be in
+and manager will check if the final balloon has been found,
+each pass will modify a different balloon, until the final balloon has been found
+
+once that it has been found, manager will stop making passes and paths will call DFS in graphs, and it will display
+the fastest way to get to the balloon that we need to get to. 

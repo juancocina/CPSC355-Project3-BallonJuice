@@ -1,0 +1,93 @@
+Here ill be taking notes for Balloon Juice
+
+Current Plan
+
+Generate all the possible paths,
+
+Implement all the paths into a map/graph/adjacency list
+
+Traverse using Depth First Search
+
+Display adjacency list
+
+----
+I should have about 3 files. Graph.js, main.js, and paths.js
+main.js is going to be what creates the canvas and stuff
+graph.js is going to handle creating the graph and probably traversing it
+paths.js is going to contain the algorithm, that finds all possible paths, until 3,13,3 is found
+
+
+//Generating all the paths is probably going to be the most annoying thing, especially since
+I don't know JS.
+
+We have two possible moves,
+Move-all, move to limit.
+
+
+(0 13 6) ==> ((13 0 6) (0 12 7) (6 13 0))
+(0 12 7) ==> ((12 0 7) (0 13 6) (7 12 0))
+(7 12 0) ==> ((0 12 7) (6 13 0) (19 0 0) (7 5 7))
+(7 5 7)  ==> ((0 12 7) (12 0 7) (7 12 0) (14 5 0))
+(12 0 7) ==> ((0 12 7) (12 7 0) (19 0 0))
+(14 5 0) ==> ((7 5 7) (6 13 0) (19 0 0) (14 0 5))
+(6 13 0) ==> ((0 13 6) (19 0 0) (6 6 7))
+
+One question i have is, how am i going to create this Node. With what data type?
+
+We start at a specific node in the graph. "DPV=(0 13 6)". We will need to represent this node's DPV address as well as the DPV addresses of all available exits from this node on the webpage.
+
+D P V stands for Dark Pale Veined. Each have global and unique limitations:
+Dark can support up to 19
+Pale can support up to 13
+Veined can support up to 7
+At all times, D+P+V should equal 19.
+When moving between nodes, only 2 of the 3 DPV values can change at a time. Moving between nodes can only happen in one of two ways:
+"move-all" Move all from one value to one other value.
+"move to limit" Move enough from one value to one other value such that the other value has reached it's limit.
+
+The Balloon Juice is at DPV(3 13 3). Our bot will need to use some sort of simple decision making mechanic to decide which of the available nodes to travel to until it has found the balloon juice, and then return to the start. We will also need to track the shortest path to the visited nodes on the side, based on our bot's movement. We can not hard code the path, we will need to either create a dumb algorithm and hope it reaches the balloon by luck or create an intelligent algorithm that uses the data provided in the readme as a way to determine the correct path
+
+Lets say that there D, P, V all integers
+ D  P  V
+(0 13 6)
+
+if (d == 0 && P == 0 && V == 0){
+  exit with error(balloon is empty or something went wrong);
+}
+if (d == 3 && p == 13 && v == 3){
+  finished
+  push back into the inputString
+}
+case 1:
+//first and 2nd moves
+d <-- p
+//------- we try to move all on D first
+if (d + p > 19) { can't make this move; }
+else if(d+p <= 19) { //this would be move all
+  d = d + p;
+  p = p - p;
+  push_back new DPV; //there would have to be some way of making sure original DPV
+                        isn't changed to we can still change it in the next if
+}
+//------- we try to move to limit on D second
+// not sure if this move applies, since the max it can contain is 19, and the max in the whole balloon is 19
+//there no way that d+p can equal more than 19 at any given time. However, this might apply for p+d
+else if(d+p > 19 && d != 19){ //move to limit
+  temp = 19 - d;
+  --- ive decided it does not apply
+}
+
+d ----> p
+if(d+p > 13) { can't do a move all; }
+else if (d+p <= 13){
+  p = p + d;
+  d = d - d;
+  push_back new DPV;
+}
+else if(d+p > 13 && p != 13){
+  temp = 13 - p;
+  if ( d < temp ){
+
+  }
+}
+// i for sure have to put way more thought into this section of code

@@ -1,5 +1,5 @@
 let g_frame_cnt = 0; // Setup a P5 display-frame counter, to do anim
-const g_frame_mod = 90; // Update every 'mod' frames.
+const g_frame_mod = 1; // Update every 'mod' frames.
 
 let newManager;
 

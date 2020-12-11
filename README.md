@@ -37,3 +37,11 @@ the balloon object is passed by reference, because its an object, so no matter w
 i need a way to check if the balloon has been explored or not, because it keeps adding the same ones over and over.
 The list grows exponentially, which is bad.
 So i need a way to check if the balloon has been explored.
+
+//Update
+i got the program to search for and successfully find the 3, 13, 3 balloon.
+The only thing i have to worry about right now is how to display all that
+Right now i have everything going through the console, but thats for testing, prob won't get credit on it
+
+I also still have to show the fastest path to 3, 13, 3
+If i could get that done, i might be able to get away with it.

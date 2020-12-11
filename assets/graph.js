@@ -4,6 +4,7 @@
 class Graph {
   constructor(){
     this.adjacencyList = new Map();
+    this.count = 0;
   }
   addVertex(vertex){
     if(!this.adjacencyList[vertex]){
@@ -23,12 +24,17 @@ class Graph {
   }
   print2dArray(){
     console.log("print")
-    console.log(this.adjacencyList.size)
 
     var iterator_obj = this.adjacencyList.entries();
     for(let i = 0; i < this.adjacencyList.size; i++){
-      document.getElementById("array").innerHTML= JSON.stringify(iterator_obj.next().value), "<br>";
+      if(iterator_obj.value === `[{"dark":3,"pale":13,"veined":3},[{"dark":3,"pale":9,"veined":7}]]`){
+        document.getElementById("array").innerHTML += `[{"dark":3,"pale":13,"veined":3},[{"dark":3,"pale":9,"veined":7}]]` + "<br> Balloon Juice found <br>"
+      }
+      else{
+          document.getElementById("array").innerHTML += JSON.stringify(iterator_obj.next().value) + "<br><br>";
+      }
     }
+
 
   }
   /* this section shouldn't be necessary for this project
@@ -44,7 +50,5 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
   */
-//  dfs(){
 
-//  }
 }

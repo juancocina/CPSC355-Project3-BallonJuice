@@ -35,3 +35,66 @@ call run()
 rinse, repeat
 
 run would be the one printing the row to the screen
+
+
+// this code for a graph, and its traversal was found at
+// https://www.freecodecamp.org/news/8-essential-graph-algorithms-in-javascript/
+// i am reusing and modifying the source code to fit this applicaiton
+class Graph {
+  constructor(){
+    this.adjacencyList = {};
+    var twoD = new Array();
+  }
+  addVertex(vertex){
+    if(!this.adjacencyList[vertex]){
+      this.adjacencyList[vertex] = [];
+    }
+  }
+  addEdge(source, destination){
+    console.log("adding edge");
+    console.log("source:");
+    console.log(source);
+    console.log("destination:");
+    console.log(destination);
+    if(!this.adjacencyList[source]){
+      this.addVertex(source);
+    }
+    //if(!this.adjacencyList[destination]){
+    //  this.addVertex(destination);
+  //  }
+    this.adjacencyList[source].push(destination);
+  //  this.adjacencyList[destination].push(source);
+
+  }
+  print(){
+    console.log(this.adjacencyList[source].destination);
+  }
+  dfs(start){
+    console.log("dfs");
+    console.log(Object.keys(this.adjacencyList).length);
+    for(let i = 0; i < this.adjacencyList.length; i++){
+      console.log("loop");
+      for(let j = 0; i < this.adjacencyList[i].length; j++);
+      console.log("loop");
+      console.log(this.adjacencyList[i].j)
+    }
+    const result = [];
+    const stack = [start];
+    const visited = {};
+    visited[start] = true;
+    let currentVertex;
+    while (stack.length) {
+      currentVertex = stack.pop();
+      result.push(currentVertex);
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          stack.push(neighbor);
+          console.log(neighbor);
+        }
+      });
+    }
+    //console.log(result);
+    return result;
+    }
+  }

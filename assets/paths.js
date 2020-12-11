@@ -7,7 +7,7 @@ class GeneratePaths {
     this.listOfBalloons = barray;
 
     this.graph = new Graph();
-    this.graph.addVertex(srcBalloon);
+    //this.graph.addVertex(srcBalloon);
   }
 
   reset(){
@@ -17,14 +17,15 @@ class GeneratePaths {
 
   //once done, the manager will call done(), which will call DJS in graph.js
   done(barray){
-    this.kappa = barray;
-    this.graph.dfs(this.kappa[0]);
+    this.graph.print2dArray();
+  //  this.graph.dfs();
   }
 
   // check if the balloon exists in the
 
   run(balloot){ //one call to "run()" = 1 pass
     let destBalloon =  Object.assign({}, balloot); //pass values to destination balloon
+    //this.graph.addVertex(destBalloon);
     //this.listOfBalloons.push(destBalloon);
     //console.log("start of run");
     //console.log(balloot);
@@ -60,7 +61,7 @@ class GeneratePaths {
       destBalloon.pale = destBalloon.pale - destBalloon.pale
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //check if the balloon is already in the list
@@ -71,15 +72,15 @@ class GeneratePaths {
           }
         }
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{
-          console.log("move all to D from P");
+          //console.log("move all to D from P");
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+          //console.log(balloot);
         }
       }
       //reset
@@ -94,7 +95,7 @@ class GeneratePaths {
       destBalloon.dark = destBalloon.dark - destBalloon.dark;
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         for(let i = 0; i < this.listOfBalloons.length; i++){
@@ -104,15 +105,15 @@ class GeneratePaths {
           }
         }
         if(this.doesExists == true){
-          console.log("ballon exists in the list");
+          //console.log("ballon exists in the list");
         }
         else{
-          console.log("move all from P to D");
+          //console.log("move all from P to D");
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+          //console.log(balloot);
         }
       }
       //reset
@@ -127,7 +128,7 @@ class GeneratePaths {
       destBalloon.pale = (destBalloon.pale + temp);
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //if the current balloon is in the list of balloons already
@@ -139,15 +140,15 @@ class GeneratePaths {
         }
         //if it exists, say so
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{//push
-          console.log("move to LIMIT on P from D")
+          //console.log("move to LIMIT on P from D")
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+        //  console.log(balloot);
         }
       }
       //reset
@@ -170,7 +171,7 @@ class GeneratePaths {
       destBalloon.veined = destBalloon.veined - destBalloon.veined;
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //if the current balloon is in the list of balloons already
@@ -182,15 +183,15 @@ class GeneratePaths {
         }
         //if it exists, say so
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{//push
-          console.log("move all to D from V")
+          //console.log("move all to D from V")
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+          //console.log(balloot);
         }
       }
       //reset
@@ -203,7 +204,7 @@ class GeneratePaths {
       destBalloon.dark = destBalloon.dark - destBalloon.dark;
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //if the current balloon is in the list of balloons already
@@ -215,15 +216,15 @@ class GeneratePaths {
         }
         //if it exists, say so
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{//push
-          console.log("move all to V from D")
+          //console.log("move all to V from D")
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+          //console.log(balloot);
         }
       }
 
@@ -240,7 +241,7 @@ class GeneratePaths {
       destBalloon.veined = destBalloon.veined + temp;
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //if the current balloon is in the list of balloons already
@@ -252,15 +253,15 @@ class GeneratePaths {
         }
         //if it exists, say so
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{//push
-          console.log("move to LIMIT on V from D");
+          //console.log("move to LIMIT on V from D");
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+        //  console.log(destBalloon);
+        //  console.log(balloot);
         }
       }
 
@@ -277,7 +278,7 @@ class GeneratePaths {
       destBalloon.veined = destBalloon.veined - destBalloon.veined;
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //if the current balloon is in the list of balloons already
@@ -289,15 +290,15 @@ class GeneratePaths {
         }
         //if it exists, say so
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{
-          console.log("move all to P from V");
+          //console.log("move all to P from V");
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+          //console.log(balloot);
         }
       }
       //reset
@@ -313,7 +314,7 @@ class GeneratePaths {
       destBalloon.pale = destBalloon.pale + temp;
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //if the current balloon is in the list of balloons already
@@ -325,14 +326,14 @@ class GeneratePaths {
         }
         //if it exists, say so
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{
-          console.log("move to LIMIT on P from V");
+          //console.log("move to LIMIT on P from V");
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+          //console.log(balloot);
         }
       }
 
@@ -346,7 +347,7 @@ class GeneratePaths {
       destBalloon.pale = destBalloon.pale - destBalloon.pale;
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //if the current balloon is in the list of balloons already
@@ -358,15 +359,15 @@ class GeneratePaths {
         }
         //if it exists, say so
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{//push
-          console.log("move all to V from P");
+        //  console.log("move all to V from P");
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+          //console.log(balloot);
         }
       }
 
@@ -383,7 +384,7 @@ class GeneratePaths {
       destBalloon.veined = destBalloon.veined + temp;
 
       if(destBalloon.dark == balloot.dark && destBalloon.pale == balloot.pale && destBalloon.veined == balloot.veined){
-        console.log("same balloon, dont push");
+        //console.log("same balloon, dont push");
       }
       else{
         //if the current balloon is in the list of balloons already
@@ -395,15 +396,15 @@ class GeneratePaths {
         }
         //if it exists, say so
         if(this.doesExist == true){
-          console.log("balloon exists in the list");
+          //console.log("balloon exists in the list");
         }
         else{
-          console.log("move to LIMIT on V from P");
+        //  console.log("move to LIMIT on V from P");
 
           this.graph.addEdge(balloot, destBalloon);//add to graphs
           this.listOfBalloons.push(destBalloon);//add to managers list
-          console.log(destBalloon);
-          console.log(balloot);
+          //console.log(destBalloon);
+          //console.log(balloot);
         }
       }
 

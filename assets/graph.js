@@ -3,11 +3,11 @@
 // i am reusing and modifying the source code to fit this applicaiton
 class Graph {
   constructor(){
-    this.adjacencyList = {};
+    this.adjacencyList = new Map();
   }
   addVertex(vertex){
     if(!this.adjacencyList[vertex]){
-      this.adjacencyList[vertex] = [];
+      this.adjacencyList.set(vertex, []);
     }
   }
   addEdge(source, destination){
@@ -17,10 +17,20 @@ class Graph {
     if(!this.adjacencyList[destination]){
       this.addVertex(destination);
     }
-    this.adjacencyList[source].push(destination);
-    this.adjacencyList[destination].push(source);
+    this.adjacencyList.get(source).push(destination);
+    this.adjacencyList.get(destination).push(source);
+    //this.adjacencyList[destination].push(source);
   }
-  
+  print2dArray(){
+    console.log("print")
+    console.log(this.adjacencyList.size)
+
+    var iterator_obj = this.adjacencyList.entries();
+    for(let i = 0; i < this.adjacencyList.size; i++){
+      document.getElementById("array").innerHTML= JSON.stringify(iterator_obj.next().value), "<br>";
+    }
+
+  }
   /* this section shouldn't be necessary for this project
   removeEdge(source, destination) {
     this.adjacencyList[source] = this.adjacencyList[source].filter(vertex => vertex !== destination);
@@ -34,4 +44,7 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
   */
+//  dfs(){
+
+//  }
 }
